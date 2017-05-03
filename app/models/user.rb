@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+  accepts_nested_attributes_for :profile
+
+  def profile
+    super || build_profile(user: self)
+  end
+
 end
