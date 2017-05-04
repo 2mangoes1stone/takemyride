@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503230320) do
+ActiveRecord::Schema.define(version: 20170504060122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "vehicle_listing_id"
+    t.date     "start_rental_date"
+    t.date     "end_rental_date"
+    t.text     "comments"
+    t.decimal  "cost_cents"
+    t.integer  "stripe_charge_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country_code"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
+    t.index ["vehicle_listing_id"], name: "index_bookings_on_vehicle_listing_id", using: :btree
+  end
+
+  create_table "car_makes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "car_models", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "car_make_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["car_make_id"], name: "index_car_models_on_car_make_id", using: :btree
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "vehicle_listing_id"
+    t.string   "pictures"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["vehicle_listing_id"], name: "index_pictures_on_vehicle_listing_id", using: :btree
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +63,15 @@ ActiveRecord::Schema.define(version: 20170503230320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "booking_id"
+    t.text     "description"
+    t.string   "rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["booking_id"], name: "index_ratings_on_booking_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +96,35 @@ ActiveRecord::Schema.define(version: 20170503230320) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "vehicle_listings", force: :cascade do |t|
+    t.integer  "car_model_id"
+    t.integer  "owner_id"
+    t.integer  "make_year"
+    t.text     "description"
+    t.integer  "max_passengers"
+    t.date     "start_available_date"
+    t.date     "end_available_date"
+    t.integer  "minimum_days_to_rent"
+    t.integer  "price_per_day"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country_code"
+    t.decimal  "lat"
+    t.decimal  "long"
+    t.text     "instructions"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["car_model_id"], name: "index_vehicle_listings_on_car_model_id", using: :btree
+    t.index ["owner_id"], name: "index_vehicle_listings_on_owner_id", using: :btree
+  end
+
+  add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "bookings", "vehicle_listings"
+  add_foreign_key "car_models", "car_makes"
+  add_foreign_key "pictures", "vehicle_listings"
   add_foreign_key "profiles", "users"
+  add_foreign_key "ratings", "bookings"
+  add_foreign_key "vehicle_listings", "car_models"
+  add_foreign_key "vehicle_listings", "users", column: "owner_id"
 end

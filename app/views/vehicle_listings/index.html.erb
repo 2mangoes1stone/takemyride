@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vehicle Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Car model</th>
+      <th>User</th>
+      <th>Make year</th>
+      <th>Description</th>
+      <th>Max passengers</th>
+      <th>Start available date</th>
+      <th>End available date</th>
+      <th>Minimum days to rent</th>
+      <th>Price per day</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Countey code</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Instructions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_listings.each do |vehicle_listing| %>
+      <tr>
+        <td><%= vehicle_listing.car_model %></td>
+        <td><%= vehicle_listing.owner %></td>
+        <td><%= vehicle_listing.make_year %></td>
+        <td><%= vehicle_listing.description %></td>
+        <td><%= vehicle_listing.max_passengers %></td>
+        <td><%= vehicle_listing.start_available_date %></td>
+        <td><%= vehicle_listing.end_available_date %></td>
+        <td><%= vehicle_listing.minimum_days_to_rent %></td>
+        <td><%= vehicle_listing.price_per_day %></td>
+        <td><%= vehicle_listing.address %></td>
+        <td><%= vehicle_listing.city %></td>
+        <td><%= vehicle_listing.state %></td>
+        <td><%= vehicle_listing.country_code %></td>
+        <td><%= vehicle_listing.lat %></td>
+        <td><%= vehicle_listing.long %></td>
+        <td><%= vehicle_listing.instructions %></td>
+        <td><%= link_to 'Show', vehicle_listing %></td>
+        <td><%= link_to 'Edit', edit_vehicle_listing_path(vehicle_listing) %></td>
+        <td><%= link_to 'Destroy', vehicle_listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle Listing', new_vehicle_listing_path %>

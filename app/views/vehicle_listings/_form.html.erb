@@ -1,0 +1,88 @@
+<%= form_for(vehicle_listing) do |f| %>
+  <% if vehicle_listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle_listing.errors.count, "error") %> prohibited this vehicle_listing from being saved:</h2>
+
+      <ul>
+      <% vehicle_listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :car_model_id %>
+    <%#= f.text_field :car_model_id %>
+    <%= f.collection_select :car_model_id, CarModel.order(:name),:id,:name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :make_year %>
+    <%= f.number_field :make_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :upload_image %>
+    <%= f.file_field :@image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_passengers %>
+    <%= f.number_field :max_passengers %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_available_date %>
+    <%= f.date_select :start_available_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_available_date %>
+    <%= f.date_select :end_available_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :minimum_days_to_rent %>
+    <%= f.number_field :minimum_days_to_rent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price_per_day %>
+    <%= f.number_field :price_per_day %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country_code %>
+    <%= f.text_field :country_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

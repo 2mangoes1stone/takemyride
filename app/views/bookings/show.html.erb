@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @booking.owner %>
+</p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @booking.vehicle %>
+</p>
+
+<p>
+  <strong>Start rental date:</strong>
+  <%= @booking.start_rental_date %>
+</p>
+
+<p>
+  <strong>End rental date:</strong>
+  <%= @booking.end_rental_date %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @booking.comments %>
+</p>
+
+<p>
+  <strong>Cost cents:</strong>
+  <%= @booking.cost_cents %>
+</p>
+
+<p>
+  <strong>Stripe charge:</strong>
+  <%= @booking.stripe_charge_id %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @booking.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @booking.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @booking.state %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @booking.country_code %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

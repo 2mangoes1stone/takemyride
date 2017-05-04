@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: one
+  vehicle: one
+  start_rental_date: 2017-05-04
+  end_rental_date: 2017-05-04
+  comments: MyText
+  cost_cents: 9.99
+  stripe_charge_id: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  country_code: MyString
+
+two:
+  owner: two
+  vehicle: two
+  start_rental_date: 2017-05-04
+  end_rental_date: 2017-05-04
+  comments: MyText
+  cost_cents: 9.99
+  stripe_charge_id: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  country_code: MyString

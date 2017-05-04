@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Car model:</strong>
+  <%= @vehicle_listing.car_model %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vehicle_listing.owner %>
+</p>
+
+<p>
+  <strong>Make year:</strong>
+  <%= @vehicle_listing.make_year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vehicle_listing.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @image %>
+</p>
+
+<p>
+  <strong>Max passengers:</strong>
+  <%= @vehicle_listing.max_passengers %>
+</p>
+
+<p>
+  <strong>Start available date:</strong>
+  <%= @vehicle_listing.start_available_date %>
+</p>
+
+<p>
+  <strong>End available date:</strong>
+  <%= @vehicle_listing.end_available_date %>
+</p>
+
+<p>
+  <strong>Minimum days to rent:</strong>
+  <%= @vehicle_listing.minimum_days_to_rent %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @vehicle_listing.price_per_day %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @vehicle_listing.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @vehicle_listing.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @vehicle_listing.state %>
+</p>
+
+<p>
+  <strong>Countey code:</strong>
+  <%= @vehicle_listing.country_code %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @vehicle_listing.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @vehicle_listing.long %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @vehicle_listing.instructions %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_listing_path(@vehicle_listing) %> |
+<%= link_to 'Back', vehicle_listings_path %>
