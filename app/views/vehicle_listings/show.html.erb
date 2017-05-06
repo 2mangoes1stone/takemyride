@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Owned by:</strong>
   <%= @vehicle_listing.owner %>
 </p>
 
@@ -46,38 +46,18 @@
 </p>
 
 <p>
+  <strong>Address:</strong>
+   <%= @vehicle_listing.full_address %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @vehicle_listing.country.name %>
+</p>
+
+<p>
   <strong>Price per day:</strong>
   <%= @vehicle_listing.price_per_day %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @vehicle_listing.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @vehicle_listing.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @vehicle_listing.state %>
-</p>
-
-<p>
-  <strong>Countey code:</strong>
-  <%= @vehicle_listing.country_code %>
-</p>
-
-<p>
-  <strong>Lat:</strong>
-  <%= @vehicle_listing.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @vehicle_listing.long %>
 </p>
 
 <p>

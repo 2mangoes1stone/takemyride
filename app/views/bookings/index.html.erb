@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Owner</th>
+      <th>Customer</th>
       <th>Vehicle</th>
       <th>Start rental date</th>
       <th>End rental date</th>
@@ -23,7 +23,7 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.owner %></td>
+        <td><%= booking.Customer %></td>
         <td><%= booking.vehicle %></td>
         <td><%= booking.start_rental_date %></td>
         <td><%= booking.end_rental_date %></td>

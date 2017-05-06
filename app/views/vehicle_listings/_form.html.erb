@@ -22,11 +22,11 @@
     <%= f.number_field :make_year %>
   </div>
 
-  <div class="field">
-    <%= f.label :upload_image %>
-    <%= f.file_field :@image %>
-  </div>
-
+  <%= f.fields_for :pictures do |pic| %>
+      <%= pic.label :image %>
+      <%= pic.file_field :image %>
+  <% end %>
+  
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>

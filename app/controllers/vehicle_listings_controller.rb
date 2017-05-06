@@ -1,8 +1,6 @@
 class VehicleListingsController < ApplicationController
   before_action :set_vehicle_listing, only: [:show, :edit, :update, :destroy]
-  # beforxe_action :set_picture, only: [:new]
-
-  # GET /vehicle_listings
+  # before_action :vehicle_listing_params
   # GET /vehicle_listings.json
   def index
     @vehicle_listings = VehicleListing.all
@@ -17,7 +15,7 @@ class VehicleListingsController < ApplicationController
   def new
     @vehicle_listing = VehicleListing.new
     @cars = CarModel.all
-    @image = Picture.new
+    @image = @vehicle_listing.pictures.build
     
   end
 
@@ -33,9 +31,12 @@ class VehicleListingsController < ApplicationController
 
     respond_to do |format|
       if @vehicle_listing.save
+        # flash[:success] = "Vehicle listing was successfully created"
+        # redirect_to @vehicle_listing
         format.html { redirect_to @vehicle_listing, notice: 'Vehicle listing was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_listing }
       else
+        # render 'new'
         format.html { render :new }
         format.json { render json: @vehicle_listing.errors, status: :unprocessable_entity }
       end
@@ -47,9 +48,11 @@ class VehicleListingsController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle_listing.update(vehicle_listing_params)
+        # redirect_to @vehicle_listing
         format.html { redirect_to @vehicle_listing, notice: 'Vehicle listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_listing }
       else
+        # 'edit'
         format.html { render :edit }
         format.json { render json: @vehicle_listing.errors, status: :unprocessable_entity }
       end
@@ -73,16 +76,12 @@ class VehicleListingsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def vehicle_listing_params
-      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :countey_code, :lat, :long, :instructions)
-    end
-
-    # def set_picture
-    #   @image = Image.find(params[:id])
+    # def vehicle_listing_params
+    #   params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions)
     # end
 
-  # Protected
-  #   def vehicle_listing_params
-  #     params.require(:contact).permit(pictures_attributes: [:id, :vehicle_listing_id, :pictures])
-  #   end
+    def vehicle_listing_params
+      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions, pictures_attributes: [:image])
+    end
+
 end
