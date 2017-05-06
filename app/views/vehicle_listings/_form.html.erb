@@ -21,11 +21,6 @@
     <%= f.label :make_year %>
     <%= f.number_field :make_year %>
   </div>
-
-  <%= f.fields_for :pictures do |pic| %>
-      <%= pic.label :image %>
-      <%= pic.file_field :image %>
-  <% end %>
   
   <div class="field">
     <%= f.label :description %>
@@ -73,8 +68,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :country_code %>
-    <%= f.text_field :country_code %>
+    <%= f.label :country_code, 'Country' %>
+   <%= f.collection_select :country_code, @countries, :alpha2, :name %>
   </div>
 
   <div class="field">

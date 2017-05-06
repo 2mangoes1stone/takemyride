@@ -16,11 +16,12 @@ class VehicleListingsController < ApplicationController
     @vehicle_listing = VehicleListing.new
     @cars = CarModel.all
     @image = @vehicle_listing.pictures.build
-    
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
   # GET /vehicle_listings/1/edit
   def edit
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
   # POST /vehicle_listings
@@ -31,12 +32,9 @@ class VehicleListingsController < ApplicationController
 
     respond_to do |format|
       if @vehicle_listing.save
-        # flash[:success] = "Vehicle listing was successfully created"
-        # redirect_to @vehicle_listing
         format.html { redirect_to @vehicle_listing, notice: 'Vehicle listing was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle_listing }
       else
-        # render 'new'
         format.html { render :new }
         format.json { render json: @vehicle_listing.errors, status: :unprocessable_entity }
       end
@@ -48,11 +46,9 @@ class VehicleListingsController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle_listing.update(vehicle_listing_params)
-        # redirect_to @vehicle_listing
         format.html { redirect_to @vehicle_listing, notice: 'Vehicle listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle_listing }
       else
-        # 'edit'
         format.html { render :edit }
         format.json { render json: @vehicle_listing.errors, status: :unprocessable_entity }
       end
@@ -76,12 +72,7 @@ class VehicleListingsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    # def vehicle_listing_params
-    #   params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions)
-    # end
-
     def vehicle_listing_params
-      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions, pictures_attributes: [:image])
+      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions)
     end
-
 end

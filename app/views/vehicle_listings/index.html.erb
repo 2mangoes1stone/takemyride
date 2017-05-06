@@ -17,7 +17,7 @@
       <th>Address</th>
       <th>City</th>
       <th>State</th>
-      <th>Countey code</th>
+      <th>Country code</th>
       <th>Lat</th>
       <th>Long</th>
       <th>Instructions</th>
@@ -28,8 +28,8 @@
   <tbody>
     <% @vehicle_listings.each do |vehicle_listing| %>
       <tr>
-        <td><%= vehicle_listing.car_model %></td>
-        <td><%= vehicle_listing.owner %></td>
+        <td><%= vehicle_listing.car_model.name %></td>
+        <td><%= vehicle_listing.owner.email %></td>
         <td><%= vehicle_listing.make_year %></td>
         <td><%= vehicle_listing.description %></td>
         <td><%= vehicle_listing.max_passengers %></td>
@@ -40,7 +40,7 @@
         <td><%= vehicle_listing.address %></td>
         <td><%= vehicle_listing.city %></td>
         <td><%= vehicle_listing.state %></td>
-        <td><%= vehicle_listing.country_code %></td>
+        <td><%= vehicle_listing.country %></td>
         <td><%= vehicle_listing.lat %></td>
         <td><%= vehicle_listing.long %></td>
         <td><%= vehicle_listing.instructions %></td>

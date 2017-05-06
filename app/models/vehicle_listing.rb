@@ -4,13 +4,16 @@ class VehicleListing < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :pictures, dependent: :destroy
-  accepts_nested_attributes_for :pictures
 
   def full_address
-    [self.address, self.city, self.state].join(', ')
+    [address, city, state].compact.join(', ')
   end
 
   def country
-    ISO3166::Country.new(self.country_code)
+    ISO3166::Country.new(country_code)
   end
+
+  # def country_code_upper
+  #   country_code.upcase
+  # end
 end
