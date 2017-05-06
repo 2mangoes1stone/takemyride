@@ -22,7 +22,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @image %>
+  <%= @vehicle_listing.image %>
 </p>
 
 <p>
@@ -64,6 +64,9 @@
   <strong>Instructions:</strong>
   <%= @vehicle_listing.instructions %>
 </p>
+
+
+<%= link_to 'Booking this vehicle',  %>
 
 <%= link_to 'Edit', edit_vehicle_listing_path(@vehicle_listing) %> |
 <%= link_to 'Back', vehicle_listings_path %>

@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, multiple: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :car_model_id %>
-    <%#= f.text_field :car_model_id %>
     <%= f.collection_select :car_model_id, CarModel.order(:name),:id,:name, include_blank: true %>
   </div>
 
@@ -69,7 +73,7 @@
 
   <div class="field">
     <%= f.label :country_code, 'Country' %>
-   <%= f.collection_select :country_code, @countries, :alpha2, :name %>
+    <%= f.collection_select :country_code, @countries, :alpha2, :name %>
   </div>
 
   <div class="field">
