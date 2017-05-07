@@ -1,6 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id) %>
+
+<% if @vehicle_listing.owner == current_user %>
+  <%= link_to 'Add photos', new_photo_path(vehicle_listing: @vehicle_listing.id) %>
+<% else %>
+  <%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id) %>
+<% end %>
+
+<p>
+  <strong>Photo:</strong>
+  <% @photos.each do |img| %>
+    <% if img.vehicle_listing_id == @vehicle_listing.id %>
+      <%= image_tag img.image_url unless img.image_url.blank? %>
+    <% end %>
+  <% end %>
+</p>
 
 <p>
   <strong>Car model:</strong>
@@ -20,11 +34,6 @@
 <p>
   <strong>Description:</strong>
   <%= @vehicle_listing.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @vehicle_listing.image %>
 </p>
 
 <p>

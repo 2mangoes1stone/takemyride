@@ -9,13 +9,13 @@ class VehicleListingsController < ApplicationController
   # GET /vehicle_listings/1
   # GET /vehicle_listings/1.json
   def show
+    @photos = Photo.all
   end
 
   # GET /vehicle_listings/new
   def new
     @vehicle_listing = VehicleListing.new
     @cars = CarModel.all
-    @image = @vehicle_listing.pictures.build
     @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 

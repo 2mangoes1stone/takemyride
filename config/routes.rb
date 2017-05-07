@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  resources :pictures
+  resources :photos
   resources :bookings
   resources :vehicle_listings
   root "welcome#index"

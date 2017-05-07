@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image, multiple: true %>
-  </div>
-
-  <div class="field">
     <%= f.label :car_model_id %>
     <%= f.collection_select :car_model_id, CarModel.order(:name),:id,:name, include_blank: true %>
   </div>
@@ -82,6 +77,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Continue to add images' %>
   </div>
 <% end %>

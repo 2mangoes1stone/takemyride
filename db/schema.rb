@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507012856) do
+ActiveRecord::Schema.define(version: 20170507072146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,12 +46,13 @@ ActiveRecord::Schema.define(version: 20170507012856) do
     t.index ["car_make_id"], name: "index_car_models_on_car_make_id", using: :btree
   end
 
-  create_table "pictures", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
     t.integer  "vehicle_listing_id"
-    t.string   "image"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["vehicle_listing_id"], name: "index_pictures_on_vehicle_listing_id", using: :btree
+    t.string   "name"
+    t.text     "image_data"
+    t.index ["vehicle_listing_id"], name: "index_photos_on_vehicle_listing_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -121,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170507012856) do
   add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "bookings", "vehicle_listings"
   add_foreign_key "car_models", "car_makes"
-  add_foreign_key "pictures", "vehicle_listings"
+  add_foreign_key "photos", "vehicle_listings"
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "bookings"
   add_foreign_key "vehicle_listings", "car_models"
