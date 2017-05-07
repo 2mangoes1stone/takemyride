@@ -48,7 +48,12 @@
     <%= f.collection_select :country_code, @countries, :alpha2, :name %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @amount %> "
+          data-email="<%= current_user.email %>"
+          data-locale="auto">
+  </script>
+  
 <% end %>

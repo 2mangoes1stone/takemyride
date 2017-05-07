@@ -15,8 +15,9 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    vehicle_listing = VehicleListing.find(params[:vehicle_listing])
-    @booking.vehicle_listing = vehicle_listing
+    @vehicle_listing = VehicleListing.find(params[:vehicle_listing])
+    @booking.vehicle_listing = @vehicle_listing
+    @amount = @vehicle_listing.price_cents
     @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
@@ -30,6 +31,32 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.customer = current_user
+    #validate start/end date etc
+    if @booking.invalid?
+      render :new
+      return
+    end
+
+    @vehicle_listing = @booking.vehicle_listing
+    # Amount in cents
+    @amount = @vehicle_listing.price_cents
+
+    #add user to stripe db
+    customer = Stripe::Customer.create(
+      :email => current_user.email,
+      :source  => params[:stripeToken]
+    )
+
+    #charge user via stripe
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => @vehicle_listing.full_address,
+      :currency    => 'usd'
+    )
+
+    @booking.stripe_charge_id = charge.id
+
     
     respond_to do |format|
       if @booking.save
@@ -40,6 +67,10 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+    
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to new_charge_path
   end
 
   # PATCH/PUT /bookings/1

@@ -13,4 +13,7 @@ class VehicleListing < ApplicationRecord
     ISO3166::Country.new(country_code)
   end
 
+  def price_cents
+    (price_per_day * 100).to_i
+  end
 end
