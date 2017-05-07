@@ -23,12 +23,11 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.Customer %></td>
-        <td><%= booking.vehicle %></td>
-        <td><%= booking.start_rental_date %></td>
-        <td><%= booking.end_rental_date %></td>
+        <td><%= booking.customer.email %></td>
+        <td><%= booking.vehicle_listing %></td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
         <td><%= booking.comments %></td>
-        <td><%= booking.cost_cents %></td>
         <td><%= booking.stripe_charge_id %></td>
         <td><%= booking.address %></td>
         <td><%= booking.city %></td>

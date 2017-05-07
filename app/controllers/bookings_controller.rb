@@ -15,17 +15,22 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    vehicle_listing = VehicleListing.find(params[:vehicle_listing])
+    @booking.vehicle_listing = vehicle_listing
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
   # GET /bookings/1/edit
   def edit
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
   # POST /bookings
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    @booking.customer = current_user
+    
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -69,6 +74,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:owner_id, :vehicle_id, :start_rental_date, :end_rental_date, :comments, :cost_cents, :stripe_charge_id, :address, :city, :state, :country_code)
+      params.require(:booking).permit(:owner_id, :vehicle_listing_id, :start_date, :end_date, :comments, :cost_cents, :stripe_charge_id, :address, :city, :state, :country_code)
     end
 end

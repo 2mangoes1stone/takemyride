@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id) %>
+
 <p>
   <strong>Car model:</strong>
   <%= @vehicle_listing.car_model.name %>
@@ -31,13 +33,13 @@
 </p>
 
 <p>
-  <strong>Start available date:</strong>
-  <%= @vehicle_listing.start_available_date %>
+  <strong>Start date:</strong>
+  <%= @vehicle_listing.start_date %>
 </p>
 
 <p>
-  <strong>End available date:</strong>
-  <%= @vehicle_listing.end_available_date %>
+  <strong>End date:</strong>
+  <%= @vehicle_listing.end_date %>
 </p>
 
 <p>
@@ -66,7 +68,6 @@
 </p>
 
 
-<%= link_to 'Booking this vehicle',  %>
 
 <%= link_to 'Edit', edit_vehicle_listing_path(@vehicle_listing) %> |
 <%= link_to 'Back', vehicle_listings_path %>

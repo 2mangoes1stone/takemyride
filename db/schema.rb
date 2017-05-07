@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506091830) do
+ActiveRecord::Schema.define(version: 20170507012856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,9 @@ ActiveRecord::Schema.define(version: 20170506091830) do
   create_table "bookings", force: :cascade do |t|
     t.integer  "customer_id"
     t.integer  "vehicle_listing_id"
-    t.date     "start_rental_date"
-    t.date     "end_rental_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.text     "comments"
-    t.decimal  "cost_cents"
     t.integer  "stripe_charge_id"
     t.string   "address"
     t.string   "city"
@@ -102,8 +101,8 @@ ActiveRecord::Schema.define(version: 20170506091830) do
     t.integer  "make_year"
     t.text     "description"
     t.integer  "max_passengers"
-    t.date     "start_available_date"
-    t.date     "end_available_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "minimum_days_to_rent"
     t.integer  "price_per_day"
     t.string   "address"
@@ -115,7 +114,6 @@ ActiveRecord::Schema.define(version: 20170506091830) do
     t.text     "instructions"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.string   "image"
     t.index ["car_model_id"], name: "index_vehicle_listings_on_car_model_id", using: :btree
     t.index ["owner_id"], name: "index_vehicle_listings_on_owner_id", using: :btree
   end

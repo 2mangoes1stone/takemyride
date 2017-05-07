@@ -73,6 +73,6 @@ class VehicleListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_listing_params
-      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_available_date, :end_available_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions)
+      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_date, :end_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions, :image)
     end
 end

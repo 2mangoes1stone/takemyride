@@ -11,41 +11,24 @@
     </div>
   <% end %>
 
+  
+  <%= f.hidden_field :vehicle_listing_id %>
+
   <div class="field">
-    <%= f.label :customer_id %>
-    <%= f.text_field :customer_id %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
   </div>
 
   <div class="field">
-    <%= f.label :vehicle_listing_id %>
-    <%= f.text_field :vehicle_listing_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :start_rental_date %>
-    <%= f.date_select :start_rental_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end_rental_date %>
-    <%= f.date_select :end_rental_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
     <%= f.label :comments %>
     <%= f.text_area :comments %>
   </div>
-
-  <div class="field">
-    <%= f.label :cost_cents %>
-    <%= f.text_field :cost_cents %>
-  </div>
-
-  <div class="field">
-    <%= f.label :stripe_charge_id %>
-    <%= f.number_field :stripe_charge_id %>
-  </div>
-
+  
   <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
@@ -62,8 +45,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :country_code %>
-    <%= f.text_field :country_code %>
+    <%= f.label :country_code, 'Country' %>
+    <%= f.collection_select :country_code, @countries, :alpha2, :name %>
   </div>
 
   <div class="actions">

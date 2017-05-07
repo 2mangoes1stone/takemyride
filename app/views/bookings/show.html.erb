@@ -2,32 +2,27 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @booking.Customer %>
+  <%= @booking.customer.email %>
 </p>
 
 <p>
   <strong>Vehicle:</strong>
-  <%= @booking.vehicle %>
+  <%= @booking.vehicle_listing %>
 </p>
 
 <p>
   <strong>Start rental date:</strong>
-  <%= @booking.start_rental_date %>
+  <%= @booking.start_date %>
 </p>
 
 <p>
   <strong>End rental date:</strong>
-  <%= @booking.end_rental_date %>
+  <%= @booking.end_date %>
 </p>
 
 <p>
   <strong>Comments:</strong>
   <%= @booking.comments %>
-</p>
-
-<p>
-  <strong>Cost cents:</strong>
-  <%= @booking.cost_cents %>
 </p>
 
 <p>
@@ -37,17 +32,7 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @booking.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @booking.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @booking.state %>
+   <%= @booking.full_address %>
 </p>
 
 <p>
