@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @vehicle_listing = VehicleListing.find(params[:vehicle_listing])
     @booking.vehicle_listing = @vehicle_listing
+    @booking.start_date = @vehicle_listing.start_date
+    @booking.end_date = @vehicle_listing.end_date
     @amount = @vehicle_listing.price_cents
     @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end

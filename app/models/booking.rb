@@ -4,6 +4,16 @@ class Booking < ApplicationRecord
 
   has_one :rating, dependent: :destroy
 
+  include ActiveModel::Validations
+
+  validate :available_dates
+
+  def available_dates
+    errors.add(:base, 'Must select a valid start date') unless self.start_date >= self.vehicle_listing.start_date
+    errors.add(:base, 'Must select a valid end date') unless self.end_date <= self.vehicle_listing.end_date
+  end
+
+  
   def full_address
     [address, city, state].compact.join(', ')
   end

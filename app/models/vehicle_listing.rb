@@ -1,4 +1,6 @@
 class VehicleListing < ApplicationRecord
+  include ImageUploader[:image]
+
   belongs_to :car_model
   belongs_to :owner, class_name: 'User'
 

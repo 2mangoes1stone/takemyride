@@ -11,7 +11,7 @@
   <strong>Photo:</strong>
   <% @photos.each do |img| %>
     <% if img.vehicle_listing_id == @vehicle_listing.id %>
-      <%= image_tag img.image_url, size:"100x100" unless img.image_url.blank? %>
+      <%= image_tag img.image_url unless img.image_url.blank? %>
     <% end %>
   <% end %>
 </p>
