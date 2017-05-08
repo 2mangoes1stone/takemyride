@@ -4,6 +4,8 @@ class Booking < ApplicationRecord
 
   has_one :rating, dependent: :destroy
 
+  validates :start_date, :end_date, :overlap => {:scope => "vehicle_listing_id"}
+
   include ActiveModel::Validations
 
   validate :available_dates
@@ -22,13 +24,4 @@ class Booking < ApplicationRecord
     ISO3166::Country.new(country_code)
   end
   
-
-  # validates :start_date, :end_date, :overlap => {:exclude_edges => "start_date"}
-  # validates :start_date, :end_date, :overlap => {:exclude_edges => ["start_date", "end_date"]}
-
-  # validates "vehicle_listings.start_date", "vehicle_listings.end_date",
-  #     :overlap => {
-  #     :query_options => {:includes => :vehicle_listing},
-  #     :scope => { "positions.customer_id" => proc{|position| position.customer_id} }
-  #   }
 end

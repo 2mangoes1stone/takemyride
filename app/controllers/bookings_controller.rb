@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
     @booking = Booking.new(booking_params)
     @booking.customer = current_user
     #validate start/end date etc
