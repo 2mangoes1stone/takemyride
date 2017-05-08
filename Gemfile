@@ -11,10 +11,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'countries'
 gem 'stripe'
 gem 'validates_overlap'
-gem 'shrine'
+gem 'shrine', '~> 2.6', '>= 2.6.1'
 gem 'geocoder'
-gem "image_processing"
-gem "mini_magick", ">= 4.3.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
@@ -23,7 +21,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
+# Use Uglifier as compressor for JavaScript assetsß
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

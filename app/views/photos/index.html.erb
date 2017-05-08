@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Vehicle listing</th>
-      <th>Image</th>
+      <th>Image data</th>
+      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%= photo.vehicle_listing %></td>
-        <td><%= photo.image %></td>
+        <td><%= photo.image_data %></td>
+        <td><%= photo.description %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

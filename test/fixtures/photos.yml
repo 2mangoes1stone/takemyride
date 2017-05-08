@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  vehicle_listing: one
-  image: MyString
+  vehicle_listing: 
+  image_data: MyString
+  description: MyString
 
 two:
-  vehicle_listing: two
-  image: MyString
+  vehicle_listing: 
+  image_data: MyString
+  description: MyString

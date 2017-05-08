@@ -15,14 +15,11 @@
 
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <% if photo.image.present? %>
-      <%= image_tag photo.image_url %>
-    <% end %>
     <%= f.label :image %>
     <%= f.hidden_field :image, value: f.object.cached_image_data %>
     <%= f.file_field :image %>

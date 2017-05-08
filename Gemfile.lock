@@ -77,7 +77,6 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.8.1)
     i18n_data (0.7.0)
-    image_processing (0.4.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
@@ -96,7 +95,6 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_magick (4.7.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     money (6.9.0)
@@ -199,16 +197,14 @@ DEPENDENCIES
   devise
   dotenv-rails
   geocoder
-  image_processing
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  mini_magick (>= 4.3.5)
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
-  shrine
+  shrine (~> 2.6, >= 2.6.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
