@@ -61,10 +61,7 @@
    <%= @vehicle_listing.full_address %>
 </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @vehicle_listing.country %>
-</p>
+<%= render 'map_embed', lat: @vehicle_listing.lat, long: @vehicle_listing.long %>
 
 <p>
   <strong>Price per day:</strong>

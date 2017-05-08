@@ -5,12 +5,15 @@ class VehicleListing < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :photos, dependent: :destroy
 
-  def full_address
-    [address, city, state].compact.join(', ')
-  end
+  geocoded_by :full_address, latitude: :lat, longitude: :long
+  after_validation :geocode
 
   def country
     ISO3166::Country.new(country_code)
+  end
+
+  def full_address
+    [address, city, country.name].compact.join(', ')
   end
 
   def price_cents
