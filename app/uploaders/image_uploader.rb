@@ -5,6 +5,7 @@ class ImageUploader < Shrine
     plugin :processing
     plugin :versions
     plugin :delete_raw
+    plugin :remove_attachment
 
     process(:store) do |io, context|
         { original: io, thumb: resize_to_limit!(io.download, 300, 300) }

@@ -12,7 +12,7 @@
   <% @photos.each do |img| %>
     <% if img.vehicle_listing_id == @vehicle_listing.id %>
       <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %>
-      <%= link_to 'Edit', edit_photo_path(img) %></p>
+      <%= link_to 'Edit', edit_photo_path(img) %> | <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %></p>
     <% end %>
   <% end %>
 </p>
@@ -35,6 +35,11 @@
 <p>
   <strong>Description:</strong>
   <%= @vehicle_listing.description %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @vehicle_listing.price_per_day %>
 </p>
 
 <p>

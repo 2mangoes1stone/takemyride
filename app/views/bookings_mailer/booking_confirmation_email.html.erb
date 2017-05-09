@@ -1,4 +1,14 @@
-<h1>Your booking has been confirmed</h1>
+<h1>Hi <%= @vehicle_listing.owner.profile.first_name %>, your booking has been confirmed</h1>
 
-<p>Your car </p>
-<%= @vehicle_listing.car_model.name %>
+<h2>Amount Paid</h2><%= (@booking.end_date - @booking.start_date).to_i * @vehicle_listing.price_per_day %>
+
+<p> Your car: </p> <%= @vehicle_listing.car_model.name %>
+
+<p> Rental start date: </p> <%= @booking.start_date %>
+<p> Rental end date: </p> <%= @booking.end_date %>
+<p> Rental instructions: </p> <%= @vehicle_listing.instructions %>
+<p> Pick up address: </p> <%= @vehicle_listing.full_address %>
+
+<%= render 'vehicle_listings/map_embed', lat: @vehicle_listing.lat, long: @vehicle_listing.long %>
+
+

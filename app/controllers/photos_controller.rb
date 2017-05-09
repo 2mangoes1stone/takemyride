@@ -44,7 +44,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to @photo.vehicle_listing, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @photo }
       else
         format.html { render :edit }
@@ -56,9 +56,10 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    vehicle_listing = @photo.vehicle_listing
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to vehicle_listing, notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +72,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:vehicle_listing_id, :image, :description)
+      params.require(:photo).permit(:vehicle_listing_id, :image, :description, :remove_image)
     end
 end
