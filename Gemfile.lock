@@ -603,7 +603,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 3.0.0.rc7)
+  aws-sdk
   better_errors
   binding_of_caller
   byebug
