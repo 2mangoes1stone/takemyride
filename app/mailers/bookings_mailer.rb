@@ -1,6 +1,6 @@
 class BookingsMailer < ApplicationMailer
   default from: ENV['EMAIL']
-  layout 'mailer'
+  # layout 'mailer'
 
   def booking_confirmation_email(vehicle_listing, booking)
     @vehicle_listing = vehicle_listing
