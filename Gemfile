@@ -15,7 +15,7 @@ gem 'shrine', '~> 2.6', '>= 2.6.1'
 gem 'geocoder'
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
-gem 'aws-sdk' #to handle file uploads on the s3 bucket
+gem "aws-sdk", "~> 2.1" #to handle file uploads on the s3 bucket
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
