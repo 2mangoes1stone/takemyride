@@ -6,15 +6,16 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'devise'
+gem 'devise' 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'countries'
 gem 'stripe'
-gem 'validates_overlap'
+gem 'validates_overlap' #to prevent double bookings
 gem 'shrine', '~> 2.6', '>= 2.6.1'
 gem 'geocoder'
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
+gem 'aws-sdk', '~> 3.0.0.rc7' #to handle file uploads on the s3 bucket
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record

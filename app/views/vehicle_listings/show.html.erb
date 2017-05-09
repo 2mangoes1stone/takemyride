@@ -12,6 +12,7 @@
   <% @photos.each do |img| %>
     <% if img.vehicle_listing_id == @vehicle_listing.id %>
       <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %>
+      <%= link_to 'Edit', edit_photo_path(img) %></p>
     <% end %>
   <% end %>
 </p>
