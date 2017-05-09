@@ -8,11 +8,18 @@ s3_options = {
     bucket:             ENV['S3_BUCKET'],
 }
 
-Shrine.storages = {
-  cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
-  store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/store")#, # permanent
- # store: Shrine::Storage::S3.new(prefix: "store", **s3_options) #production S3
-}
+if Rails.env.development?
+  Shrine.storages = {
+    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
+    store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/store")#, # permanent
+  }
+else
+  Shrine.storages = {
+    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
+    store: Shrine::Storage::S3.new(prefix: "store", **s3_options) #production S3
+  }
+end
+
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data # for forms
