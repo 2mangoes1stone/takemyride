@@ -1,5 +1,6 @@
 require "shrine"
 require "shrine/storage/file_system"
+require "shrine/storage/s3"
 
 s3_options = {
     access_key_id:      ENV['S3_KEY'],
