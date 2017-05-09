@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# car_make = CarMake.create([{name: 'Toyota'}, {name: 'Honda'}, {name: 'Ford'}, {name: 'Holden'}, {name: 'Nissan'}])
+car_make = CarMake.create([{name: 'Toyota'}, {name: 'Honda'}, {name: 'Ford'}, {name: 'Holden'}, {name: 'Nissan'}])
 
 # car_model = CarModel.create([{name: 'Toyota Corolla', car_make_id: 1}, {name: 'Toyota Camry', car_make_id: 1},                             {name: 'Toyota Yaris', car_make_id: 1}, {name: 'Toyota Landcruiser', car_make_id: 1},                             {name: 'Toyota Kulger', car_make_id: 1}, {name:'Honda Accord', car_make_id: 2},
 #                              {name: 'Honda Civic', car_make_id: 2}, {name: 'Honda City', car_make_id: 2}, {name: 'Honda CRV', car_make_id: 2}, {name: 'Honda Jazz', car_make_id: 2}, 
