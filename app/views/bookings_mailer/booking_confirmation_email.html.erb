@@ -1,4 +1,4 @@
-<h1>Hi <%= @vehicle_listing.owner.profile.first_name %>, your booking has been confirmed</h1>
+<h1>Hi <%= @booking.customer.profile.first_name %>, your booking has been confirmed</h1>
 
 <h2>Amount Paid</h2><%= (@booking.end_date - @booking.start_date).to_i * @vehicle_listing.price_per_day %>
 

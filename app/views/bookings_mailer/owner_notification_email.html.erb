@@ -1,0 +1,13 @@
+<h1>Hi <%= @vehicle_listing.owner.profile.first_name %>, your vehicle has been booked</h1>
+
+<h2>Amount Paid to your account</h2><%= (@booking.end_date - @booking.start_date).to_i * @vehicle_listing.price_per_day %>
+
+<p> Your customer: </p> <%= @booking.customer.profile.first_name %>
+
+<p> Rental start date: </p> <%= @booking.start_date %>
+<p> Rental end date: </p> <%= @booking.end_date %>
+<p> Booking comments: </p> <%= @booking.comments %>
+
+
+
+
