@@ -3,23 +3,28 @@
   <head>
     <title>Takemyride</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-  
     <% if flash[:notice].present?  %>
       <div>
        <%= flash[:notice]  %> 
       </div>
     <% end %>
-  
 
+    <%= render 'layouts/navigation' %>
 
+    <%#= render 'layouts/messages' %>
     <%= render 'nav/primary' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
 
-    <%= yield %>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

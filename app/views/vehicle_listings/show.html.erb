@@ -1,83 +1,92 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if @vehicle_listing.owner == current_user %>
-  <%= link_to 'Add photos', new_photo_path(vehicle_listing: @vehicle_listing.id) %>
-<% else %>
-  <%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id) %>
-<% end %>
-
-<p>
-  <strong>Photo:</strong>
+<div class="container">
   <% @photos.each do |img| %>
     <% if img.vehicle_listing_id == @vehicle_listing.id %>
-      <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %>
-      <%= link_to 'Edit', edit_photo_path(img) %> | <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %></p>
+      <div class="col-sm-4"> <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %> <br/>
+        <% if current_user == @vehicle_listing.owner %>
+          <%= link_to 'Edit', edit_photo_path(img) %> <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %>
+        <% end %>
+    </div>
     <% end %>
   <% end %>
-</p>
+</div>
 
-<p>
-  <strong>Car model:</strong>
-  <%= @vehicle_listing.car_model.name %>
-</p>
+<div class="col-xs-8 col-xs-offset-2">
+  <% if @vehicle_listing.owner == current_user %>
+    <%= link_to 'Add photos', new_photo_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
+  <% else %>
+    <%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>  
 
-<p>
-  <strong>Owned by:</strong>
-  <%= @vehicle_listing.owner.email %>
-</p>
 
-<p>
-  <strong>Make year:</strong>
-  <%= @vehicle_listing.make_year %>
-</p>
+<div class="well col-xs-8 col-xs-offset-2">
+  <p>
+    <strong>Car model:</strong>
+    <%= @vehicle_listing.car_model.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @vehicle_listing.description %>
-</p>
+  <p>
+    <strong>Owned by:</strong>
+    <%= @vehicle_listing.owner.email %>
+  </p>
 
-<p>
-  <strong>Price per day:</strong>
-  <%= @vehicle_listing.price_per_day %>
-</p>
+  <p>
+    <strong>Make year:</strong>
+    <%= @vehicle_listing.make_year %>
+  </p>
 
-<p>
-  <strong>Max passengers:</strong>
-  <%= @vehicle_listing.max_passengers %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @vehicle_listing.description %>
+  </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @vehicle_listing.start_date %>
-</p>
+  <p>
+    <strong>Price per day:</strong>
+    <%= @vehicle_listing.price_per_day %>
+  </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @vehicle_listing.end_date %>
-</p>
+  <p>
+    <strong>Max passengers:</strong>
+    <%= @vehicle_listing.max_passengers %>
+  </p>
 
-<p>
-  <strong>Minimum days to rent:</strong>
-  <%= @vehicle_listing.minimum_days_to_rent %>
-</p>
+  <p>
+    <strong>Start date:</strong>
+    <%= @vehicle_listing.start_date %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-   <%= @vehicle_listing.full_address %>
-</p>
+  <p>
+    <strong>End date:</strong>
+    <%= @vehicle_listing.end_date %>
+  </p>
 
-<%= render 'map_embed', lat: @vehicle_listing.lat, long: @vehicle_listing.long %>
+  <p>
+    <strong>Minimum days to rent:</strong>
+    <%= @vehicle_listing.minimum_days_to_rent %>
+  </p>
 
-<p>
-  <strong>Price per day:</strong>
-  <%= @vehicle_listing.price_per_day %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @vehicle_listing.full_address %>
+  </p>
 
-<p>
-  <strong>Instructions:</strong>
-  <%= @vehicle_listing.instructions %>
-</p>
+  <p>
+    <strong>Price per day:</strong>
+    <%= @vehicle_listing.price_per_day %>
+  </p>
 
-<%= link_to 'Edit', edit_vehicle_listing_path(@vehicle_listing) %> |
-<%= link_to 'Back', vehicle_listings_path %>
+  <p>
+    <strong>Instructions:</strong>
+    <%= @vehicle_listing.instructions %>
+  </p>
+
+  <%= render 'map_embed', lat: @vehicle_listing.lat, long: @vehicle_listing.long %>
+</div>
+
+<% if current_user == @vehicle_listing.owner %>
+  <%= link_to 'Edit', edit_vehicle_listing_path(@vehicle_listing) %> |
+  <%= link_to 'Back', vehicle_listings_path %>
+<% end %>
