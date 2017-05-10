@@ -40,5 +40,13 @@
   <%= @booking.country_code %>
 </p>
 
+
+<% if !@booking.paid %>
+  form_for(booking) do |f|
+  
+<% end %>
+
+
+
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
  
   resources :photos
+
   resources :bookings
+  # get 'bookings/stripe', to: 'bookings#stripe'
   resources :vehicle_listings
   root "welcome#index"
   devise_for :users, controllers: { registrations: 'users/registrations', confirmations: 'users/confirmations' }

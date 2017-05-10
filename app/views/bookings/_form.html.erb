@@ -13,14 +13,16 @@
 
   <%= f.hidden_field :vehicle_listing_id %>
 
+  <h1 class="days"><%= @days %></h1>
+
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+    <%= f.text_field :start_date, id: 'start_date' %>
   </div> 
 
   <div class="field">
     <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
+    <%= f.text_field :end_date, id: 'end_date' %>
   </div>
 
   <div class="field">
@@ -48,12 +50,60 @@
     <%= f.collection_select :country_code, @countries, :alpha2, :name %>
   </div>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= @amount %> "
-          data-email="<%= current_user.email %>"
-          data-locale="auto">
-  </script>
-  
+<button id="payButton">Payment</button>
+
+
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script>
+$(function(){
+
+  var handler = StripeCheckout.configure({
+    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+    locale: 'auto',
+    name: 'Take my Ride',
+    description: 'Booking',
+    email: '<%= current_user.email %>',
+    token: function(token) {
+      $('input#stripeToken').val(token.id);
+      $('form').submit()
+    }
+  })
+
+  var price = <%= @price.to_json %>
+  var amount = price;
+
+  $('#start_date, #end_date')
+    .datepicker({dateFormat: 'yy-mm-dd'})
+
+  $('#start_date, #end_date').change(updateAmount)
+  function updateAmount() {
+    var startDate = $('#start_date').val()
+    var endDate = $('#end_date').val()
+
+    var oneDay = 24*60*60*1000
+    var firstDate = new Date(startDate)
+    var secondDate = new Date(endDate)
+
+    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay) ))
+    
+    $('.days').text(diffDays)
+
+    
+    var newAmount = diffDays * price
+    amount = newAmount;
+  }
+
+
+  $('#payButton').click(function(e){
+    e.preventDefault()
+    handler.open({
+      amount: amount
+    })
+  })
+
+})
+</script>
+
 <% end %>

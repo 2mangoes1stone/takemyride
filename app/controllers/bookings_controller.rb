@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    
   end
 
   # GET /bookings/new
@@ -19,7 +20,9 @@ class BookingsController < ApplicationController
     @booking.vehicle_listing = @vehicle_listing
     @booking.start_date = @vehicle_listing.start_date
     @booking.end_date = @vehicle_listing.end_date
-    @amount = @vehicle_listing.price_cents
+    @price = @vehicle_listing.price_cents
+    @days = (@booking.end_date - @booking.start_date).to_i
+    @amount = @days * @price
     @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
   end
 
@@ -44,7 +47,7 @@ class BookingsController < ApplicationController
     # Amount in cents
     @amount = @vehicle_listing.price_cents
 
-    #add user to stripe db
+    # add user to stripe db
     customer = Stripe::Customer.create(
       :email => current_user.email,
       :source  => params[:stripeToken]
@@ -112,6 +115,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:owner_id, :vehicle_listing_id, :start_date, :end_date, :comments, :cost_cents, :stripe_charge_id, :address, :city, :state, :country_code)
+      params.require(:booking).permit(:owner_id, :vehicle_listing_id, :start_date, :end_date, :comments, :cost_cents, :stripe_charge_id, :address, :city, :state, :country_code, :paid)
     end
 end
