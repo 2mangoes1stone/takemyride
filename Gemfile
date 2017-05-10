@@ -8,6 +8,7 @@ end
 # added by Ruegen
 gem 'jquery-ui-rails'
 
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise' 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'countries'
