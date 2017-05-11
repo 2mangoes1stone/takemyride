@@ -16,7 +16,7 @@
   <%= f.hidden_field :vehicle_listing_id %>
   <%= hidden_field_tag 'stripeToken' %>
 
-  <h1 class="days"><%= @days %></h1>
+  <%#<h1 class="days">= @days </h1>%>
 
   <div class="field">
     <%= f.label :start_date %>
@@ -82,7 +82,7 @@ $(function(){
     .datepicker({dateFormat: 'yy-mm-dd'})
 
   $('#start_date, #end_date').change(updateAmount)
-  
+
   function updateAmount() {
     var startDate = $('#start_date').val()
     var endDate = $('#end_date').val()

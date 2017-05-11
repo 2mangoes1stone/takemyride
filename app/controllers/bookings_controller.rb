@@ -70,7 +70,7 @@ class BookingsController < ApplicationController
         BookingsMailer.booking_confirmation_email(@vehicle_listing, @booking ).deliver_now
         BookingsMailer.owner_notification_email(@vehicle_listing, @booking ).deliver_now
 
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to @booking, notice: 'Booking was successfully created, a receipt has been emailed to your account' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
