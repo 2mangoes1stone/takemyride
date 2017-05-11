@@ -1,0 +1,29 @@
+<% obj.each do |vehicle_listing| %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg">
+        <div class="vehicle-title">
+          <%= link_to vehicle_listing.car_model.name, vehicle_listing_path(vehicle_listing)  %>
+        </div>
+        <div class="vehicle-meta-details">
+          Make year: <%= vehicle_listing.make_year %><br/>
+          Rental start date: <%= vehicle_listing.start_date %><br/>
+          Rental end date: <%= vehicle_listing.end_date %><br/>
+          Price per day: <%= vehicle_listing.price_per_day %><br/>
+          Address: <%= vehicle_listing.full_address %>
+        </div>
+        <div class="vehicle-actions">
+          <% if signed_in? && (current_user == vehicle_listing.owner || current_user.admin?) %>
+            <%= link_to 'Edit', edit_vehicle_listing_path(vehicle_listing) %>
+            <%= link_to 'Delete', vehicle_listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
