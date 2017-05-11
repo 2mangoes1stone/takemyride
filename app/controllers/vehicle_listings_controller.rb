@@ -3,7 +3,12 @@ class VehicleListingsController < ApplicationController
   # before_action :vehicle_listing_params
   # GET /vehicle_listings.json
   def index
-    @vehicle_listings = VehicleListing.all
+    # @vehicle_listings = VehicleListing.all
+    if params[:search]
+      @vehicle_listings = VehicleListing.search(params[:search]).order("created_at DESC")
+    else
+      @vehicle_listings = VehicleListing.all.order("created_at DESC")
+    end
   end
 
   # GET /vehicle_listings/1

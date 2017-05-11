@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<% if @vehicle_listings.blank? %>
+  <h4>There are no listings containing the term <%= params[:search] %>.</h4>
+<% end %>
+
+
 <h1 align="center">Listing all vehicles</h1>
 <div align="center">
 </div>

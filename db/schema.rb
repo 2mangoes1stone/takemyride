@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511023200) do
+ActiveRecord::Schema.define(version: 20170511212839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,8 +115,10 @@ ActiveRecord::Schema.define(version: 20170511023200) do
     t.text     "instructions"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "profile_id"
     t.index ["car_model_id"], name: "index_vehicle_listings_on_car_model_id", using: :btree
     t.index ["owner_id"], name: "index_vehicle_listings_on_owner_id", using: :btree
+    t.index ["profile_id"], name: "index_vehicle_listings_on_profile_id", using: :btree
   end
 
   add_foreign_key "bookings", "users", column: "customer_id"
@@ -126,5 +128,6 @@ ActiveRecord::Schema.define(version: 20170511023200) do
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "bookings"
   add_foreign_key "vehicle_listings", "car_models"
+  add_foreign_key "vehicle_listings", "profiles"
   add_foreign_key "vehicle_listings", "users", column: "owner_id"
 end
