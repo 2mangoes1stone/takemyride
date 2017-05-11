@@ -58,7 +58,7 @@ class BookingsController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => @vehicle_listing.full_address,
-      :currency    => 'usd'
+      :currency    => 'aud'
     )
 
     @booking.stripe_charge_id = charge.id
@@ -78,9 +78,9 @@ class BookingsController < ApplicationController
       end
     end
     
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to new_charge_path
+    # rescue Stripe::CardError => e
+    #   flash[:error] = e.message
+    #   redirect_to new_booking_path(vehicle_listing: @vehicle_listing.id)
   end
 
   # PATCH/PUT /bookings/1

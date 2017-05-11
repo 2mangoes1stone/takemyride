@@ -14,6 +14,7 @@
   <% end %>
 
   <%= f.hidden_field :vehicle_listing_id %>
+  <%= hidden_field_tag 'stripeToken' %>
 
   <h1 class="days"><%= @days %></h1>
 
@@ -75,11 +76,13 @@ $(function(){
 
   var price = <%= @price.to_json %>
   var amount = price;
+  updateAmount()
 
   $('#start_date, #end_date')
     .datepicker({dateFormat: 'yy-mm-dd'})
 
   $('#start_date, #end_date').change(updateAmount)
+  
   function updateAmount() {
     var startDate = $('#start_date').val()
     var endDate = $('#end_date').val()
