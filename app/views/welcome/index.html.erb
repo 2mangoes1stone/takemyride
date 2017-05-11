@@ -3,10 +3,13 @@
 <%#fill this with a link to how it works page %>
 
 <div class="center jumbotron">
-  <%= link_to 'rent a ride', vehicle_listings_path, class: "btn btn-danger btn-lg btn-xlarge" %><p></p>
+<p>
+  <%= link_to 'rent a ride', vehicle_listings_path, class: "btn btn-danger btn-lg btn-xlarge" %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <% if user_signed_in? %>
     <%= link_to 'share a ride', new_vehicle_listing_path, class: "btn btn-danger btn-lg btn-xlarge" %>
   <% else %>
     <%=  link_to 'share a ride', root_path, class: "btn btn-danger btn-lg btn-xlarge"  %>
   <% end %>
+  </p>
 </div>

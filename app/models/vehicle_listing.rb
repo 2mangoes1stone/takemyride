@@ -9,6 +9,7 @@ class VehicleListing < ApplicationRecord
   geocoded_by :full_address, latitude: :lat, longitude: :long
   after_validation :geocode
 
+
   def country
     ISO3166::Country.new(country_code)
   end
