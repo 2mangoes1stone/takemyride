@@ -1,7 +1,7 @@
 <body data-turbolinks="false">
 <div class="row">
   <div class="col-xs-12">
-    <%= form_for(booking) do |f| %>
+    <%= form_for(booking, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <% if booking.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -19,42 +19,74 @@
 
       <%#<h1 class="days">= @days </h1>%>
 
-      <div class="field">
-        <%= f.label :start_date %>
-        <%= f.text_field :start_date, id: 'start_date' %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :start_date %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :start_date, id: 'start_date' %>
+        </div>
       </div> 
 
-      <div class="field">
-        <%= f.label :end_date %>
-        <%= f.text_field :end_date, id: 'end_date' %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :end_date %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :end_date, id: 'end_date' %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :comments %>
-        <%= f.text_area :comments %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :comments %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_area :comments %>
+        </div>
       </div>
       
-      <div class="field">
-        <%= f.label :address %>
-        <%= f.text_field :address %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :address %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :address %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :city %>
-        <%= f.text_field :city %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :city %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :city %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :state %>
-        <%= f.text_field :state %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :state %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :state %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :country_code, 'Country' %>
-        <%= f.collection_select :country_code, @countries, :alpha2, :name %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :country_code, 'Country' %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.collection_select :country_code, @countries, :alpha2, :name %>
+        </div>
       </div>
 
-    <button id="payButton" class="btn btn-primary btn-lg">Payment</button>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <button id="payButton" class="btn btn-primary btn-lg">Payment</button>
+          </div>
+      </div>
 
 
 

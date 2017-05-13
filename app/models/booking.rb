@@ -4,6 +4,15 @@ class Booking < ApplicationRecord
 
   has_one :rating, dependent: :destroy
 
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :comments, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :country, presence: true
+
+
   validates :start_date, :end_date, :overlap => {:scope => "vehicle_listing_id"}
 
   include ActiveModel::Validations
