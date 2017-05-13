@@ -34,7 +34,7 @@
       <form class="navbar-form navbar-left">
         <div class="form-group">
           <%= form_tag(vehicle_listings_path, method: "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control"  %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search by car or city", class: "form-control"  %>
             <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
           <% end %>
         </div>
@@ -50,7 +50,7 @@
               <li><%=	 link_to "View your profile", profile_path(current_user) %></li>
               <%#<li><a href="#">Something else here</a></li>%>
               <%#<li role="separator" class="divider"></li>%>
-              <%#<li><a href="#">Separated link</a></li>%>
+              <%#<li><a href="#">Separated link</a></li>%>1
           </li>
         <% else %>
           <li><%= link_to 'Log in', new_user_session_path %></li>

@@ -14,16 +14,16 @@
 
 
 <div class="container-fluid well col-xs-12">
+  <div class-"row">  
     <% @photos.each do |img| %>
       <% if img.vehicle_listing_id == @vehicle_listing.id %>
         <div class="showvehlist"> <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %> <br/>
           <% if current_user == @vehicle_listing.owner %>
             <%= link_to 'Edit', edit_photo_path(img) %> <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %>
           <% end %>
-        </div>
       <% end %>
     <% end %>
-
+  </div>  
   <p>
     <strong>Car model:</strong>
     <%= @vehicle_listing.car_model.name %>
