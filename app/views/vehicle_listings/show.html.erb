@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="container">
-  <% @photos.each do |img| %>
-    <% if img.vehicle_listing_id == @vehicle_listing.id %>
-      <div class="col-sm-4"> <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %> <br/>
-        <% if current_user == @vehicle_listing.owner %>
-          <%= link_to 'Edit', edit_photo_path(img) %> <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %>
-        <% end %>
-    </div>
+  <div class="col-xs-12" align="center">
+    <% if @vehicle_listing.owner == current_user %>
+      <%= link_to 'Add photos', new_photo_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
+    <% elsif signed_in? && @vehicle_listing.owner != current_user %>
+      <%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
+    <% elsif !signed_in? %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary btn-lg' %> <br/><br/>
     <% end %>
-  <% end %>
-</div>
-
-<div class="col-xs-8 col-xs-offset-2">
-  <% if @vehicle_listing.owner == current_user %>
-    <%= link_to 'Add photos', new_photo_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
-  <% else %>
-    <%= link_to 'Book now', new_booking_path(vehicle_listing: @vehicle_listing.id), class: 'btn btn-primary btn-lg' %>
-  <% end %>
-</div>  
+  </div>  
 
 
-<div class="well col-xs-8 col-xs-offset-2">
+<div class="container-fluid well col-xs-12">
+    <% @photos.each do |img| %>
+      <% if img.vehicle_listing_id == @vehicle_listing.id %>
+        <div class="showvehlist"> <%= image_tag img.image_url(:thumb), size: "300x300" if img.image %> <br/>
+          <% if current_user == @vehicle_listing.owner %>
+            <%= link_to 'Edit', edit_photo_path(img) %> <%= link_to 'remove', img,  method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
   <p>
     <strong>Car model:</strong>
     <%= @vehicle_listing.car_model.name %>
