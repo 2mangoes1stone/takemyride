@@ -42,7 +42,7 @@
 3. ✔️ Code review. Demonstrate that you have had your code reviewed by other students and that you have provided a code review for others(Jaime, Teck and George helped me out a quite a bit, and others as well. I have also given my input to a few students and gone through their code).
 4. ✔️ Github. Demonstrate use of frequent commits, pull requests, documentation(Plenty of commit and branches).
 5. ✔️ Use Agile development methodologies(Trello is great!!!).
-6. ❌ Provide evidence you have used code quality tools (eg. Traceroute, Bullet, Brakeman, Rails Best Practices tool, RuboCop, RubyCritic, CodeClimate)(Sorry, ran out of time to implement any of this).
+6. ❌ Provide evidence you have used code quality tools (eg. Traceroute, Bullet, Brakeman, Rails Best Practices tool, RuboCop, RubyCritic, CodeClimate)(Sorry, ran out of time to implement any of this, but will do so as an improvement).
 
 
 #### RAILS APPLICATION CODE
@@ -88,7 +88,7 @@
 ![Handdrawing2](app/assets/images/IMG_2411.JPG)
 
 
-##Gems usedy
+## Gems used
 
 1. gem 'bootstrap-sass', '~> 3.3.5'- for bootstrap
 2. gem 'devise' - for user authentication
@@ -119,7 +119,10 @@
 - This proved to be costly towards the end of the project as I have to completely re think the profile show page. Someting I am working on right now.
 
 
-## 3. Set up sendgrid 
+## 3. Set up sendgrid
+
+- This took a while to set up.
+- Got a proper understanding the ENV variables and how to set them up.
 
 ## 4. Set up vehicle listing table:
 
@@ -137,22 +140,25 @@
 - By far the hardet part of the project
 - Hardest part was getting different models talking to each other
 - Definitely a learning experience as I really understoof how rails works while setting up this table
-
+- Had to install validates overlap gem to prevent double booking.
+- Also included some custom validations with regards to dates that can be chosen and found it pretty straghtforward
 
 ## 7. Set up Actionmailer
 
 - Surprisingly easy as I thought this would be way out my depth
 - Spent far less time settign up this than I anticipated
 
-## 8. Set up S3 Bucket
+## 8. Set up S3 bucket
 - Again, took my time setting this up as there was a lot of different elements involved
 - Heroku kept giving me errors but finally worked after about half a days work 
 
+## 9. Set up stripe
 
+- Setting up stripe as a whole was very challenging mainly because I had almost no time left. 
+- I assumed this would be easy enought but I hit a major roadblock as customers updated dates would not reflect on stripe.
+- Had to resort to getting help from Ruegen with some jquery.(However, I have now learnt a method to do this withough jquery and I am currently working on that)
 
-
-## payments
-
+#### To have live price updates on bookings new page:(with the help of Ruegen)
 Problem: Don't yet have JavaScript skills to create seamless payment through one action. 
 Solution: have a paid bool field that produces a pay button on the booking :show page which will only show if paid is false.
 Booking is not final until paid is true
@@ -164,3 +170,11 @@ https://stripe.com/docs/recipes/variable-amount-checkout
 2. We did some JavaScript & jQuery to find out the days
 3. We updated a variable amount * price
 4. We put that amount in the stripe JavaScript action
+
+## 10. Adding bootstrap
+
+- I wish I had more time to style, but just added some basic classes to make the app look presentable
+- This being my first proper experience with bootstrap, I really could see how quickly pages can be styled as opposed to the term 1 project of using vanilla CSS.
+
+## GIT HISTORY
+![git](app/assets/images/git.png)
