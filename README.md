@@ -198,4 +198,4 @@ https://stripe.com/docs/recipes/variable-amount-checkout
 - To all my class mates who have supported me through this project and the course overall as well. It was great that we all came together and helped each other out. Special mentions to Jaime, George and Teck.
 
 
-************************** THE END ******************************
+                       ** THE END **
