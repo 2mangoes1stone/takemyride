@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511212839) do
+ActiveRecord::Schema.define(version: 20170514044735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170511212839) do
     t.string   "country_code"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "stripe_charge_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
     t.index ["vehicle_listing_id"], name: "index_bookings_on_vehicle_listing_id", using: :btree
   end
@@ -44,6 +43,13 @@ ActiveRecord::Schema.define(version: 20170511212839) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["car_make_id"], name: "index_car_models_on_car_make_id", using: :btree
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_charges_on_booking_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
@@ -115,19 +121,17 @@ ActiveRecord::Schema.define(version: 20170511212839) do
     t.text     "instructions"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "profile_id"
     t.index ["car_model_id"], name: "index_vehicle_listings_on_car_model_id", using: :btree
     t.index ["owner_id"], name: "index_vehicle_listings_on_owner_id", using: :btree
-    t.index ["profile_id"], name: "index_vehicle_listings_on_profile_id", using: :btree
   end
 
   add_foreign_key "bookings", "users", column: "customer_id"
   add_foreign_key "bookings", "vehicle_listings"
   add_foreign_key "car_models", "car_makes"
+  add_foreign_key "charges", "bookings"
   add_foreign_key "photos", "vehicle_listings"
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "bookings"
   add_foreign_key "vehicle_listings", "car_models"
-  add_foreign_key "vehicle_listings", "profiles"
   add_foreign_key "vehicle_listings", "users", column: "owner_id"
 end

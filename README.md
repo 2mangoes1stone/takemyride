@@ -74,6 +74,7 @@
 
 ## Mockups / Wireframes 🖼
 [Hosted on Figma](https://www.figma.com/file/VhdyvsgAHD8SV6dDAEMEr9xE/takemyride)
+![Figma](app/assets/images/figma.png)
 
 
 ## Trello 😏
