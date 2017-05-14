@@ -58,7 +58,7 @@
 10. ✔️ Your app will have some type of searching, sorting and or filtering capability.
 11. ✔️ Your app will have some type of file uploading capability (eg. images).
 12. ✔️ Your app will have authentication (eg. Devise, must have full functionality in place).
-13. Your app will have authorisation (users have restrictions on what they can see and edit).
+13. ✔️ Your app will have authorisation (users have restrictions on what they can see and edit).
 14. ❎ Your app will have an admin dashboard for the admin user to administrate the site. (Can have admin access after toggling boolean from console)
 15. ✔️ Document your application with a README that explains how to setup, configure and use your application.
 
@@ -178,3 +178,24 @@ https://stripe.com/docs/recipes/variable-amount-checkout
 
 ## GIT HISTORY
 ![git](app/assets/images/git.png)
+
+## To Do 🔥🔥🔥
+- Get the bookings side of the app have a much better UI and replace the existing javascript with just rails code(I am doing this right now)
+- Explore and learn how to use code quality tools
+- Properly set up the profile model
+- Set up a proper internal messaging system
+- Complete the review functionality
+- Expand on the current search functionality
+- Add static pages(about, why us?, how it works? etc)
+
+# A few words I would like to say
+- This has by far been one of the hardest 2 weeks, of my life and I have worked against ome pretty stringent deadlines in the past. The only difference here was that I was learning the language as I was preparing the project. 
+- Never the less, it has been a great experience and I dont want to stop here. I will continue to work on this project and hopefully will get to learn more.
+- The past 2 weeks has really pushed my mental capabalities, and even though I questioned myself on a couple of occasions I am so glad that I made it through(albeit I feel i can make it much better)
+
+# A big thank you
+- To Patrick, Ruegen and John - our wonderful tutors, for putting up with my annoying questions all day everyday!!
+- To all my class mates who have supported me through this project and the course overall as well. It was great that we all came together and helped each other out. Special mentions to Jaime, George and Teck.
+
+
+************************** THE END ******************************
