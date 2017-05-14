@@ -28,7 +28,7 @@
 ✔️ = Done 😊 | ❌ = Not Done 😞 | ❎ = Kinda Done 😑
 
 #### DESIGN DOCUMENTATION
-##### Demonstrate your ability to break doen the problem and design a solution
+##### Demonstrate your ability to break down the problem and design a solution
 1. ✔️ One page summary of your application including problem definition, solution.
 2. ✔️ A workflow diagram of the user journey/s.
 3. ✔️ Wireframes for at least 5 screens.
@@ -108,8 +108,8 @@
 # How I went about setting up the app
 
 ## 1. Set up tables:
-- Coded in all my table date from the ERD I had prepared earlier.
-- Was smooth sailing for most of it, but I had to make a couple of minor changes along the way. Nothing worth mentioning.
+- Coded in all my table data from the ERD I had prepared earlier.
+- Was smooth sailing for most of it, but I had to make a couple of minor changes along the way.
 - Decided to seed in car makes and models and this proved quite helpful.
 
 ## 2. Set up devise, user and profile :
@@ -127,36 +127,38 @@
 ## 4. Set up vehicle listing table:
 
 - Definetely spent a lot of time on this.
+- Used scaffold to generate MVC.
 - Started my gem installations here with geocoder and countries.
 
 ## 5. Set up photos table:
 
-- Had a hard time setting up shrine and imagemagick
+- Had a hard time setting up shrine and imagemagick.
 - Found it a bit tricky because I had to display my photos in another model.
 - Reaached out to Janko(creator of Shrine) and he helped promptly!! 
 
 ## 6. Set up Booking
 
-- By far the hardet part of the project
-- Hardest part was getting different models talking to each other
-- Definitely a learning experience as I really understoof how rails works while setting up this table
+- By far the hardet part of the project.
+- Used scaffold to set up MVC.
+- Hardest part was getting payments working and getting info passed in from vehicle listing table.
+- Definitely a learning experience as I really gained a solid understandong of how rails works by this point.
 - Had to install validates overlap gem to prevent double booking.
-- Also included some custom validations with regards to dates that can be chosen and found it pretty straghtforward
+- Also included some custom validations with regards to dates that can be chosen and found it pretty straghtforward.
 
 ## 7. Set up Actionmailer
 
-- Surprisingly easy as I thought this would be way out my depth
-- Spent far less time settign up this than I anticipated
+- Surprisingly easy as I thought this would be way out my depth.
+- Spent far less time setting up this than I anticipated.
 
 ## 8. Set up S3 bucket
-- Again, took my time setting this up as there was a lot of different elements involved
-- Heroku kept giving me errors but finally worked after about half a days work 
+- Again, took my time setting this up as there was a lot of different elements involved.
+- Heroku kept giving me errors but finally worked after about half a days work.
 
 ## 9. Set up stripe
 
 - Setting up stripe as a whole was very challenging mainly because I had almost no time left. 
-- I assumed this would be easy enought but I hit a major roadblock as customers updated dates would not reflect on stripe.
-- Had to resort to getting help from Ruegen with some jquery.(However, I have now learnt a method to do this withough jquery and I am currently working on that)
+- I assumed this would be easy enough but I hit a major roadblock, as customers updated dates would not reflect on stripe create action.
+- Had to resort to getting help from Ruegen with some jquery.(However, I have now learnt a method to do this without jquery and I am currently working on that)
 
 #### To have live price updates on bookings new page:(with the help of Ruegen)
 Problem: Don't yet have JavaScript skills to create seamless payment through one action. 
@@ -180,22 +182,22 @@ https://stripe.com/docs/recipes/variable-amount-checkout
 ![git](app/assets/images/git.png)
 
 ## To Do 🔥🔥🔥
-- Get the bookings side of the app have a much better UI and replace the existing javascript with just rails code(I am doing this right now)
-- Explore and learn how to use code quality tools
-- Properly set up the profile model
-- Set up a proper internal messaging system
-- Complete the review functionality
-- Expand on the current search functionality
-- Add static pages(about, why us?, how it works? etc)
+- Get the bookings side of the app have a much better UI and replace the existing javascript with just rails code(I am doing this right now).
+- Explore and learn how to use code quality tools.
+- Properly set up the profile model.
+- Set up a proper internal messaging system.
+- Complete the review functionality.
+- Expand on the current search functionality.
+- Add static pages(about, why us?, how it works? etc).
 
 # A few words I would like to say
-- This has by far been one of the hardest 2 weeks, of my life and I have worked against ome pretty stringent deadlines in the past. The only difference here was that I was learning the language as I was preparing the project. 
+- This has by far been one of the hardest 2 weeks of my life and I have worked against some pretty stringent deadlines in the past. The only difference here was that I was learning the language as I was preparing the project. 
 - Never the less, it has been a great experience and I dont want to stop here. I will continue to work on this project and hopefully will get to learn more.
-- The past 2 weeks has really pushed my mental capabalities, and even though I questioned myself on a couple of occasions I am so glad that I made it through(albeit I feel i can make it much better)
+- The past 2 weeks has really pushed my mental capabalities, and even though I questioned myself on a couple of occasions I am so glad that I made it through(albeit I feel i can make it much better).
 
 # A big thank you
 - To Patrick, Ruegen and John - our wonderful tutors, for putting up with my annoying questions all day everyday!!
-- To all my class mates who have supported me through this project and the course overall as well. It was great that we all came together and helped each other out. Special mentions to Jaime, George and Teck.
+- To all my class mates who have supported me through this project and the course overall as well. It was great that we all came together and helped each other out. Special mentions to Jaime, George and Teck for their valuable input.
 
 
                                              ** THE END **
