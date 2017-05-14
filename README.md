@@ -1,5 +1,7 @@
 # takemyride
 
+Coder Factory Academy(M2) - Melbourne, Term 2 Project
+
 #### View and interact with the live app at [https://takemyride-whiterabbit.herokuapp.com/](https://takemyride-whiterabbit.herokuapp.com/)
 
 ## A quick project summary
