@@ -88,17 +88,65 @@
 ![Handdrawing2](app/assets/images/IMG_2411.JPG)
 
 
+##Gems usedy
+
+1. gem 'bootstrap-sass', '~> 3.3.5'- for bootstrap
+2. gem 'devise' - for user authentication
+3. gem 'dotenv-rails', groups: [:development, :test] - to store API keys
+4. gem 'countries' - to countries list
+5. gem 'stripe' - Payment integration
+6. gem 'validates_overlap' - to prevent double bookings
+7. gem 'shrine', '~> 2.6', '>= 2.6.1' - Image uploading
+8. gem 'geocoder' - for google maps API
+9. gem "image_processing" - for image processing
+10. gem "mini_magick", ">= 4.3.5" - for image resizing
+11. gem "aws-sdk", "~> 2.1" - to handle file uploads on the s3 bucket
+12. gem 'will_paginate', '3.1.5' - to create page breaks
+13. gem 'jquery-ui-rails'(added by Ruegen) - for bookings page refresh
 
 
+# How I went about setting up the app
+
+## 1. Set up tables:
+- Coded in all my table date from the ERD I had prepared earlier.
+- Was smooth sailing for most of it, but I had to make a couple of minor changes along the way. Nothing worth mentioning.
+- Decided to seed in car makes and models and this proved quite helpful.
+
+## 2. Set up devise, user and profile :
+
+- This was a pretty straightforward task.
+- Only issue I has was my decison to nest the profile table attributes in the user model
+- This proved to be costly towards the end of the project as I have to completely re think the profile show page. Someting I am working on right now.
 
 
+## 3. Set up sendgrid 
+
+## 4. Set up vehicle listing table:
+
+- Definetely spent a lot of time on this.
+- Started my gem installations here with geocoder and countries.
+
+## 5. Set up photos table:
+
+- Had a hard time setting up shrine and imagemagick
+- Found it a bit tricky because I had to display my photos in another model.
+- Reaached out to Janko(creator of Shrine) and he helped promptly!! 
+
+## 6. Set up Booking
+
+- By far the hardet part of the project
+- Hardest part was getting different models talking to each other
+- Definitely a learning experience as I really understoof how rails works while setting up this table
 
 
+## 7. Set up Actionmailer
 
+- Surprisingly easy as I thought this would be way out my depth
+- Spent far less time settign up this than I anticipated
 
-
-
-
+## 8. Set up S3 Bucket
+- Again, took my time setting this up as there was a lot of different elements involved
+- Heroku kept giving me errors but finally worked after about half a days work 
 
 
 
