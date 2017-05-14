@@ -5,8 +5,8 @@
 ## A quick project summary
 
 #### An online platform where car sharing is made possible
-- Enables car owners to list their cars for a short term lease
-- Alows potential customers who want to hire a car to directly connect to car owners 
+- Enables car owners to list their cars for short term lease
+- Alows potential customers who want to hire a car to directly connect with car owners 
 
 
 #### To use the application
@@ -17,7 +17,7 @@
 - run rails db:create
 - run rails db:migrate
 - run rails db:seed
-- create a ENV file in the root folder and load the keys for Sendgrid, stripe and Amazon s3 bucket
+- create a ENV file in the root folder and load your keys for Sendgrid, stripe and Amazon s3 bucket
 - Please also incude --> EMAIL=donotreply@example.com in your ENV file
 - run rails s
 - navigate to localhost:3000 to test the project
@@ -27,8 +27,8 @@
 ### Assignment Criteria 📑
 ✔️ = Done 😊 | ❌ = Not Done 😞 | ❎ = Kinda Done 😑
 
-### DESIGN DOCUMENTATION
-#### Demonstrate your ability to break doen the problem and design a solution
+#### DESIGN DOCUMENTATION
+##### Demonstrate your ability to break doen the problem and design a solution
 1. ✔️ One page summary of your application including problem definition, solution.
 2. ✔️ A workflow diagram of the user journey/s.
 3. ✔️ Wireframes for at least 5 screens.
@@ -66,6 +66,27 @@
 #### DEPLOYED APPLICATION
 
 1. ✔️ Your application is to be deployed to Heroku / AWS.
+
+
+## Database schema - ERD 📊
+![ERD](app/assets/images/ERD.png)
+
+
+## Mockups / Wireframes 🖼
+[Hosted on Figma](https://www.figma.com/file/VhdyvsgAHD8SV6dDAEMEr9xE/takemyride)
+
+
+## Trello 😏
+[Trello - takemyride - Ruby on Rails - CoderFactoryAcademy](https://trello.com/b/0h5xuf95/takemyride)
+
+![Trello1](app/assets/images/trello1.png)
+![Trello2](app/assets/images/trello2.png)
+
+## Initial workflow ideas 😏
+![Handdrawing1](app/assets/images/IMG_2410.JPG)
+![Handdrawing2](app/assets/images/IMG_2411.JPG)
+
+
 
 
 
