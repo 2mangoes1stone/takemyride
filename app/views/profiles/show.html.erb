@@ -1,16 +1,9 @@
-<h1 align="center"><%= "Profile: " + @profile.first_name + @profile.last_name%></h1>
+<h1 align="center"><%= "Profile of: " + @profile.first_name + " " + @profile.last_name%></h1>
 
   <div align="center">
-    <%= "#{@profile.avatar}" %>
-    <%= "#{@profile.first_name}" %> <br />
-    <%= "#{@profile.last_name}" %>
+    
+
   </div>
 
-<%#= render 'vehicle_listings/vehicle_listing', obj: @profile.user.vehicle_listings %>
-
-<%#= @profile.user.vehicle_listings.each do |v| %>
-  <%#= link_to v.car_model.name, vehicle_listing_path(v)  %>
-
-<%# end %>
 
 
