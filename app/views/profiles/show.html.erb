@@ -1,7 +1,7 @@
 <h1 align="center"><%= "Profile of: " + @profile.first_name + " " + @profile.last_name%></h1>
 
   <div align="center">
-    
+    <%= render "vehicle_listings/vehicle_listing", obj: @profile.vehicle_listings %>
 
   </div>
 
