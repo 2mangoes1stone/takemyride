@@ -2,7 +2,7 @@ class VehicleListing < ApplicationRecord
 
   belongs_to :car_model
   belongs_to :owner, class_name: 'User'
-  # belongs_to :profile
+  belongs_to :profile
 
   has_many :bookings, dependent: :destroy
   has_many :photos, dependent: :destroy

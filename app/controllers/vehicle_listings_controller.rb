@@ -22,6 +22,8 @@ class VehicleListingsController < ApplicationController
     @vehicle_listing = VehicleListing.new
     @cars = CarModel.all
     @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
+    @profile = Profile.find(params[:profile])
+    @vehicle_listing.profile = @profile
   end
 
   # GET /vehicle_listings/1/edit
@@ -79,6 +81,6 @@ class VehicleListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_listing_params
-      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_date, :end_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions, :image)
+      params.require(:vehicle_listing).permit(:car_model_id, :user_id, :make_year, :description, :max_passengers, :start_date, :end_date, :minimum_days_to_rent, :price_per_day, :address, :city, :state, :country_code, :lat, :long, :instructions, :image, :profile_id)
     end
 end
