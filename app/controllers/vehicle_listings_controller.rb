@@ -32,6 +32,7 @@ class VehicleListingsController < ApplicationController
   # POST /vehicle_listings
   # POST /vehicle_listings.json
   def create
+    @countries = ISO3166::Country.codes.map { |country_code| ISO3166::Country.new(country_code) }
     @vehicle_listing = VehicleListing.new(vehicle_listing_params)
     @vehicle_listing.owner = current_user
 
