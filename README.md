@@ -186,7 +186,7 @@ https://stripe.com/docs/recipes/variable-amount-checkout
 ## To Do 🔥🔥🔥
 - Get the bookings side of the app have a much better UI and replace the existing javascript with just rails code(I am doing this right now).
 - Explore and learn how to use code quality tools.
-- Properly set up the profile model. ✔️ ==> This issue ha ow been fixed.
+- Properly set up the profile model. ✔️ ==> This issue has now been fixed.
 - Set up a proper internal messaging system.
 - Complete the review functionality.
 - Expand on the current search functionality.
