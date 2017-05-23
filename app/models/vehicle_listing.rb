@@ -12,7 +12,7 @@ class VehicleListing < ApplicationRecord
 
 
   def self.search(search)
-    base = self.joins(:car_model)
+    base = self .joins(:car_model)
     base.where("UPPER (car_models.name) ILIKE ?", "%#{search.upcase}%").or(base.where("UPPER (city) ILIKE ?", "%#{search.upcase}%"))
   end
 
